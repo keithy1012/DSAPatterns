@@ -28,3 +28,31 @@ def generateNumber(digits):
     return helper(digits, res)
 
 print(generateNumber("23"))
+
+
+def generateNumber2(digits):
+    res = []
+    keyboard = {
+        "2": "abc",
+        "3": "def",
+        "4": "ghi",
+        "5": "jkl",
+        "6": "mno",
+        "7": "pqrs",
+        "8": "tuv",
+        "9": "wxyz"
+        }
+    def dfs(digits, curr):
+        if len(digits)==0:
+            res.append(curr)
+            return
+        else:
+            next_dig = digits[0]
+            letters = keyboard.get(next_dig)
+            for letter in letters:
+                dfs(digits[1:], curr + letter)
+
+    dfs(digits, "")
+    return res
+
+print(generateNumber2("23"))
