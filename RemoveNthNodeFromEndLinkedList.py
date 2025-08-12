@@ -7,7 +7,10 @@ first.n = Node(5)
 first.n.n = Node(9)
 first.n.n.n = Node(13)
 
-
+'''
+If we wanted to remove the 3rd node from the end, and we have a total of 5 nodes:
+1->2->3->4->5 (we want to remove 3) => that node is 5-3=2 nodes from the start.
+'''
 def removeNthNodeFromEnd(head, n):
     dummy = head
     numNodes = 0

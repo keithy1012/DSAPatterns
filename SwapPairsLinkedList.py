@@ -7,7 +7,23 @@ first.n = Node(5)
 first.n.n = Node(9)
 first.n.n.n = Node(13)
 
-
+'''
+Two cases of even/odd nodes: 1->2 or 1->2->3
+Assume we have 2 pointers: first and second. 
+dummy -> 1 -> 2 -> 3
+first = dummy.next = 1
+second = dummy.next.next = 2
+prev = dummy
+algo:
+while second:
+1. temp = second.next
+2. second.next = first
+3. first.next = temp
+4. prev.next = second
+5. prev = first
+6. first = temp
+7. if temp.next: second = temp.next, else: second = None
+'''
 def swapPairs(head):
     if head is None or head.n is None:
         return head
